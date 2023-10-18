@@ -193,9 +193,16 @@ namespace Console_Chess_SAEG.Moves
     }
     public class Rook : GamePieces
     {
-        public void RookMove()
+        public void RookMove(int positionX, int positionY)
         {
-
+            if(positionY == PiecePositionRow && positionX != PiecePositionColumn)
+            {
+                PiecePositionColumn = positionX;
+            }
+            else if (positionY != PiecePositionRow && positionX == PiecePositionColumn)
+            {
+                PiecePositionRow = positionY;
+            }
         }
         public void RookAtack()
         {

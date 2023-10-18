@@ -362,27 +362,133 @@ namespace Console_Chess_SAEG.TableGame
                         if (positionY < 0)
                         {
                             positionY = 0;
-                            if (logicTableGame[positionY - 1, auxPositions] != "  ")
+                            if(t1.PiecePositionRow == positionY)
                             {
-                                Console.WriteLine("No puedes realizar este movimiento");
+                                if(t1.PiecePositionColumn > auxPositions)
+                                {
+                                    for(int i = t1.PiecePositionColumn - 1 ; auxPositions < i; i--)
+                                    {
+                                        if (logicTableGame[positionY, i] != "  ")
+                                        {
+                                            Console.WriteLine("No puedes realizar este movimiento");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            t1.RookMove(auxPositions, positionY);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = t1.PiecePositionColumn + 1; auxPositions > i; i++)
+                                    {
+                                        if (logicTableGame[positionY, i] != "  ")
+                                        {
+                                            Console.WriteLine("No puedes realizar este movimiento");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            t1.RookMove(auxPositions, positionY);
+                                        }
+                                    }
+                                }
                             }
-                            else
+                            else 
                             {
-                                h2.KnightMove(auxPositions, positionY);
+                                for(int i = t1.PiecePositionRow + 1; positionY > i; i++)
+                                {
+                                    if (logicTableGame[positionY, i] != "  ")
+                                    {
+                                        Console.WriteLine("No puedes realizar este movimiento");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        t1.RookMove(auxPositions, positionY);
+                                    }
+                                }
                             }
                         }
                         else if (positionY > 7)
                         {
                             positionY = 7;
-                            if (logicTableGame[positionY - 1, auxPositions] != "  ")
+                            if (t1.PiecePositionRow == positionY)
                             {
-                                Console.WriteLine("No puedes realizar este movimiento");
+                                if (t1.PiecePositionColumn > auxPositions)
+                                {
+                                    for (int i = t1.PiecePositionColumn - 1; auxPositions < i; i--)
+                                    {
+                                        if (logicTableGame[positionY, i] != "  ")
+                                        {
+                                            Console.WriteLine("No puedes realizar este movimiento");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            t1.RookMove(auxPositions, positionY);
+                                        }
+                                    }
+                                }
+                                else
+                                {
+                                    for (int i = t1.PiecePositionColumn + 1; auxPositions > i; i++)
+                                    {
+                                        if (logicTableGame[positionY, i] != "  ")
+                                        {
+                                            Console.WriteLine("No puedes realizar este movimiento");
+                                            break;
+                                        }
+                                        else
+                                        {
+                                            t1.RookMove(auxPositions, positionY);
+                                        }
+                                    }
+                                }
+                            }
+                            else if(t1.PiecePositionRow > positionY)
+                            {
+                                for (int i = t1.PiecePositionRow -1; positionY < i; i--)
+                                {
+                                    if (logicTableGame[positionY, i] != "  ")
+                                    {
+                                        Console.WriteLine("No puedes realizar este movimiento");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        t1.RookMove(auxPositions, positionY);
+                                    }
+                                }
                             }
                             else
                             {
-                                h2.KnightMove(auxPositions, positionY);
+                                for(int i = t1.PiecePositionRow + 1; positionY > i; i++)
+                                {
+                                    if (logicTableGame[positionY, i] != "  ")
+                                    {
+                                        Console.WriteLine("No puedes realizar este movimiento");
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        t1.RookMove(auxPositions, positionY);
+                                    }
+                                }
                             }
-                        }
+                        }/*
+                        else if(t1.PiecePositionColumn == auxPositions)
+                        {
+                            if(t1.PiecePositionRow > positionY)
+                            {
+                                for(int i = )
+                            }
+                            else
+                            {
+
+                            }
+                        }*/
                         break;
                     case "T2":
                         Console.WriteLine("Igrengresa las posicion de la 'A' a la 'H'");
