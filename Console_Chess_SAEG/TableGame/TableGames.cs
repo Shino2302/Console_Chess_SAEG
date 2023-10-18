@@ -105,8 +105,15 @@ namespace Console_Chess_SAEG.TableGame
             h2.PiecePositionRow = 7;
             h2.PiecePositionColumn = 6;
 
-            Rook1 t1 = new Rook1();
-            Rook2 t2 = new Rook2();
+            Rook t1 = new Rook();
+            t1.PieceName = "T1";
+            t1.PiecePositionRow = 7;
+            t1.PiecePositionColumn = 0;
+
+            Rook t2 = new Rook();
+            t2.PieceName = "T2";
+            t2.PiecePositionRow = 7;
+            t2.PiecePositionColumn = 7;
 
             Pawns p1 = new Pawns();
             p1.PieceName = "P1";
@@ -351,6 +358,31 @@ namespace Console_Chess_SAEG.TableGame
                         positionX = Convert.ToChar(Console.ReadLine());
                         Console.WriteLine("Ingresa la posición de 1 al 8:");
                         positionY = Convert.ToInt32(Console.ReadLine());
+                        auxPositions = tool.ConvertLettersToNumbers(positionX);
+                        if (positionY < 0)
+                        {
+                            positionY = 0;
+                            if (logicTableGame[positionY - 1, auxPositions] != "  ")
+                            {
+                                Console.WriteLine("No puedes realizar este movimiento");
+                            }
+                            else
+                            {
+                                h2.KnightMove(auxPositions, positionY);
+                            }
+                        }
+                        else if (positionY > 7)
+                        {
+                            positionY = 7;
+                            if (logicTableGame[positionY - 1, auxPositions] != "  ")
+                            {
+                                Console.WriteLine("No puedes realizar este movimiento");
+                            }
+                            else
+                            {
+                                h2.KnightMove(auxPositions, positionY);
+                            }
+                        }
                         break;
                     case "T2":
                         Console.WriteLine("Igrengresa las posicion de la 'A' a la 'H'");

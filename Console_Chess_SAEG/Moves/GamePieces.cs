@@ -191,31 +191,8 @@ namespace Console_Chess_SAEG.Moves
 
         }
     }
-    public class Rook1 : GamePieces
+    public class Rook : GamePieces
     {
-        public Rook1()
-        {
-            PieceName = "T1";
-            PiecePositionColumn = 0;
-            PiecePositionRow = 7;
-        }
-        public void RookMove()
-        {
-
-        }
-        public void RookAtack()
-        {
-
-        }
-    }
-    public class Rook2 : GamePieces
-    {
-        public Rook2()
-        {
-            PieceName = "T2";
-            PiecePositionColumn = 7;
-            PiecePositionRow = 7;
-        }
         public void RookMove()
         {
 
